@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+    background-color: #ffca08;
+} 
+
+.feat-font{
+    text-align: center;
+}
