@@ -28,7 +28,7 @@
 
                 </form>
             </div>
-            <table class="mx-auto w-50 border text-center">
+            <table class="mx-auto w-50 border border-secondary text-center">
               <tr>
                 <td class="border py-2 fs-4 text-warning fw-bold">Category Name</td>
                 <td class="border py-2 fs-4 text-warning fw-bold">Action</td>

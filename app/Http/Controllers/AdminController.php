@@ -40,6 +40,7 @@ class AdminController extends Controller
         $product=new products;
         $product->name=$request->name;
         $product->code=$request->code;
+        $product->status=$request->status;
         //add image
         $image=$request->image;
         $imagename=time().'.'.$image->getClientOriginalExtension();
@@ -58,5 +59,39 @@ class AdminController extends Controller
     {
         $product=products::all();
         return view('admin.show_products',compact('product'));
+    }
+    public function delete_product($id)
+    {
+        $product=products::find($id);
+        $product->delete();
+        return redirect()->back()->with('message','Product Deleted Successfully');
+    }
+    public function update_product($id)
+    {   
+        $product=products::find($id);
+        $category=category::all();
+
+        return view('admin.update_product',compact('product','category'));
+    }
+    public function update_product_confirm(Request $request,$id)
+    {
+        $product=products::find($id);
+        $product->name=$request->name;
+        $product->code=$request->code;
+        $product->status=$request->status;
+        $product->category=$request->category;
+        $product->quantity=$request->quantity;
+        $product->price=$request->price;
+        $product->discount_price=$request->dis_price;
+        $image=$request->image;
+        if($image)
+        {
+            $imagename=time().'.'.$image->getClientOriginalExtension();
+            $request->image->move('products',$imagename);
+            $product->image=$imagename;
+        }
+       
+        $product->save();
+        return redirect()->back()->with('message','Product Updated Successfully');
     }
 }
