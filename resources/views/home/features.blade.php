@@ -22,14 +22,14 @@
                                     <div>
                                         <div class="d-flex justify-content-between">
                                             @if ($product->discount_price != 0)
-                                                <p class="mt-2 mb-0 fw-bold">₱{{ $product->discount_price }}</p>
                                                 <small class="px-2 mt-2 mb-0 fw-bold text-decoration-line-through">
                                                     ₱{{ $product->price }}</small>
+                                                <p class="mt-2 mb-0 fw-bold">₱{{ $product->discount_price }}</p>
                                             @else
                                                 <p class="mt-2 mb-0 fw-bold">₱{{ $product->price }}</p>
                                             @endif
                                         </div>
-                                        <small class="mt-2 mb-0 fw-bolder text-secondary">Stocks:
+                                        <small class="ms-5 mt-2 mb-0 fw-bolder text-secondary">Stocks:
                                             {{ $product->quantity }}</small>
                                     </div>
                                 </div>

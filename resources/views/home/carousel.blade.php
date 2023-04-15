@@ -9,25 +9,11 @@
 
         <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img height="600dvh" src="./projectassets/bg-photo1.jpg" class="d-block w-100" alt="Slide 1">
-            </div>
-            <div class="container">
-                <div class="carousel-caption text-center">
-                    <p><a class="util-btn btn-lg btn btn-warning" href="#shop-now">SHOP NOW</a></p>
+            @foreach ($carousel as $carousel)
+                <div class="carousel-item active">
+                    <img height="600dvh" src="/data/{{ $carousel->image }}" class="d-block w-100" alt="Slide 1">
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img height="600dvh" src="./projectassets/handtools-bg.png" class="d-block w-100" alt="Slide 2">
-            </div>
-            <div class="container">
-                <div class="carousel-caption text-center">
-                    <p><a class="util-btn btn-lg btn btn-warning" href="#shop-now">SHOP NOW</a></p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img height="600dvh" src="./projectassets/bg-photo6.jpg" class="d-block w-100" alt="Slide 3">
-            </div>
+            @endforeach
             <div class="container">
                 <div class="carousel-caption text-center">
                     <p><a class="util-btn btn-lg btn btn-warning" href="#shop-now">SHOP NOW</a></p>

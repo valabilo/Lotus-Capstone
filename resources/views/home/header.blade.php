@@ -35,7 +35,7 @@
 <nav class="navbar sticky-top m-0 navbar-expand-lg navbar-dark">
     <div class="container-fluid mx-4 ">
         <a href="/" class="navbar-brand me-5 px-2">
-            <img class="wish-zoom" width="140px" height="60px" src="./projectassets/logo-1.jpg" alt="">
+            <img class="wish-zoom" width="140px" height="60px" src="./projectassets/logo-1.jpg" alt="...">
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>

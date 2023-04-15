@@ -53,3 +53,15 @@ route::post('/add_carousel', [AdminController::class, 'add_carousel']);
 route::get('/view_carousel', [AdminController::class, 'view_carousel']);
 
 route::get('/delete_carousel/{id}', [AdminController::class, 'delete_carousel']);
+
+route::post('/add_store', [AdminController::class, 'add_store']);
+
+route::get('/view_stores', [AdminController::class, 'view_stores']);
+
+route::get('/delete_store/{id}', [AdminController::class, 'delete_store']);
+
+route::get('/contacts', [AdminController::class, 'contacts']);
+
+route::post('/add_contact', [AdminController::class, 'add_contact']);
+
+route::get('/delete_contact/{id}', [AdminController::class, 'delete_contact']);

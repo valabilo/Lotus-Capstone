@@ -10,12 +10,18 @@ use App\Models\User;
 
 use App\Models\Products;
 
+use App\Models\Carousel;
+
+use App\Models\Stores;
+
 class HomeController extends Controller
 {
     public function index()
     {
         $product = products::all();
-        return view('home.userpage', compact('product'));
+        $carousel = carousel::all();
+        $store = Stores::all();
+        return view('home.userpage', compact('product', 'carousel', 'store'));
     }
 
     public function redirect()
@@ -25,7 +31,9 @@ class HomeController extends Controller
             return view('admin.home');
         } else {
             $product = products::all();
-            return view('home.userpage', compact('product'));
+            $carousel = carousel::all();
+            $store = Stores::all();
+            return view('home.userpage', compact('product', 'carousel', 'store'));
         }
     }
 }
