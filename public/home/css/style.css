@@ -74,9 +74,7 @@
             transition: transform .3s ease-in;
         }
         .img-zoom:hover {
-            -ms-transform: scale(1.05); /* IE 9 */
-            -webkit-transform: scale(1.05); /* Safari 3-8 */
-            transform: scale(1.05); 
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 2px 8px 0 rgba(0, 0, 0, 0.05);
         }
         .util-btn:hover, .feat-btn:hover, .si-btn:hover  {
             background-color:#6c6e72;

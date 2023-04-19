@@ -35,14 +35,14 @@
 <nav class="navbar sticky-top m-0 navbar-expand-lg navbar-dark">
     <div class="container-fluid mx-4 ">
         <a href="/" class="navbar-brand me-5 px-2">
-            <img class="wish-zoom" width="140px" height="60px" src="./projectassets/logo-1.jpg" alt="...">
+            <img class="wish-zoom" width="140px" height="60px" src="/projectassets/logo-1.jpg" alt="...">
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-custom navbar-nav">
-                <a href="home/Products.html" class="ms-auto nav-item nav-link active">PRODUCTS</a>
+                <a href="{{ url('home.products') }}" class="ms-auto nav-item nav-link active">PRODUCTS</a>
                 <a href="home/Promotions.html" class="ms-auto nav-item nav-link">PROMOTIONS</a>
                 <a href="home/services.html" class="ms-auto nav-item nav-link">SERVICES</a>
             </div>
@@ -50,14 +50,19 @@
                 <input type="text" class="form-control me-sm-2" placeholder="Search">
                 <button type="submit" class="btn btn-outline-light">Search</button>
             </form>
-            <div class="navbar-nav m-2">
-                <!-- <a href="#modalScrollableCenter" data-bs-toggle="modal" class="wish-zoom ms-auto nav-item nav-link"><img width="30px" height="30px" src="https://cdn3.iconfinder.com/data/icons/jolly-icons-free/64/cart_64.png" alt=""><span class="badge bg-danger">4</span></a> -->
+            <div class="navbar-nav m-2 align-items-center">
+                <div class="w-100 ms-auto nav-item nav-link">
+                    <a href="{{ url('cart') }}" class="d-flex align-items-center wish-zoom ms-auto"><img
+                            width="30px" height="30px"
+                            src="https://cdn3.iconfinder.com/data/icons/jolly-icons-free/64/cart_64.png" alt="">
+                        <span style="position: relative; top:-10px; left:5px" class="badge bg-danger">0</span></a>
+                </div>
                 @if (Route::has('login'))
                     @auth
-                        <li class="">
+                        <div class="ms-auto nav-item nav-link">
                             <x-app-layout>
                             </x-app-layout>
-                        </li>
+                        </div>
                     @else
                         <div class="dropdown">
                             <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
@@ -79,90 +84,4 @@
     </div>
     </div>
     </div>
-    <!-----------CART Modal-------->
-    <div class="modal" id="modalScrollableCenter">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content rounded-4 shadow-lg">
-                <!-- Modal Header -->
-                <div class="modal-header mx-3">
-                    <h3 class="modal-title">Your Cart</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body mx-3">
-                    <div class="d-md-flex gap-2"><img width="50px" height="50px" src="./projectassets/acc1.jpg"
-                            alt="">
-                        <p class="mb-0 fw-bolder ms-3">LOTUS BRUSHLESS 18V X-Line Cordless Impact Drill w/2pcs Battery
-                            Charger & Hard Case LTHD18VLI-2BLX</p>
-                        <button type="button"
-                            class="py-0 text-nowrap btn-sm btn btn-danger text-light">Cancel</button>
-                        <button type="button" data-bs-target=""
-                            class="py-0 text-nowrap btn-sm btn btn-primary text-light"
-                            data-href="checkout.html">Check-out</button>
-                    </div>
-                    <hr>
-                    <div class="d-md-flex gap-2"><img width="50px" height="50px" src="./projectassets/acc2.jpg"
-                            alt="">
-                        <p class="mb-0 fw-bolder  ms-3">LOTUS BRUSHLESS 18V X-Line Cordless Impact Drill w/2pcs Battery
-                            Charger & Hard Case LTHD18VLI-2BLX</p>
-                        <button type="button"
-                            class="py-0 text-nowrap btn-sm btn btn-danger text-light">Cancel</button>
-                        <button type="button"
-                            class="py-0 text-nowrap btn-sm btn btn-primary text-light">Check-out</button>
-                    </div>
-                    <hr>
-                    <div class="d-md-flex gap-2"><img width="50px" height="50px" src="./projectassets/acc3.jpg"
-                            alt="">
-                        <p class="mb-0 fw-bolder  ms-3">LOTUS BRUSHLESS 18V X-Line Cordless Impact Drill w/2pcs Battery
-                            Charger & Hard Case LTHD18VLI-2BLX</p>
-                        <button type="button"
-                            class="py-0 text-nowrap btn-sm btn btn-danger text-light">Cancel</button>
-                        <button type="button"
-                            class="py-0 text-nowrap btn-sm btn btn-primary text-light">Check-out</button>
-                    </div>
-                    <hr>
-                    <div class="d-md-flex gap-2"><img width="50px" height="50px" src="./projectassets/acc1.jpg"
-                            alt="">
-                        <p class="mb-0 fw-bolder  ms-3">LOTUS BRUSHLESS 18V X-Line Cordless Impact Drill w/2pcs Battery
-                            Charger & Hard Case LTHD18VLI-2BLX</p>
-                        <button type="button"
-                            class="py-0 text-nowrap btn-sm btn btn-danger text-light">Cancel</button>
-                        <button type="button"
-                            class="py-0 text-nowrap btn-sm btn btn-primary text-light">Check-out</button>
-                    </div>
-                    <hr>
-                    <div class="modal-co d-md-flex gap-2"><img width="50px" height="50px"
-                            src="./projectassets/acc2.jpg" alt="">
-                        <p class="mb-0 fw-bolder  ms-3">LOTUS BRUSHLESS 18V X-Line Cordless Impact Drill w/2pcs Battery
-                            Charger & Hard Case LTHD18VLI-2BLX</p>
-                        <button type="button gap-2" class="py-0 text-nowrap btn-sm btn btn-success"
-                            disabled>Checked-out</button>
-                    </div>
-                    <hr>
-                    <div class="modal-co d-md-flex gap-2"><img width="50px" height="50px"
-                            src="./projectassets/acc3.jpg" alt="">
-                        <p class="mb-0 fw-bolder ms-3">LOTUS BRUSHLESS 18V X-Line Cordless Impact Drill w/2pcs Battery
-                            Charger & Hard Case LTHD18VLI-2BLX</p>
-                        <button type="button" class="py-0 text-nowrap btn-sm btn btn-danger"
-                            disabled>Cancelled</button>
-                    </div>
-                    <hr>
-                    <div class="modal-co d-md-flex gap-2"><img width="50px" height="50px"
-                            src="./projectassets/acc3.jpg" alt="">
-                        <p class="mb-0 fw-bolder ms-3">LOTUS BRUSHLESS 18V X-Line Cordless Impact Drill w/2pcs Battery
-                            Charger & Hard Case LTHD18VLI-2BLX</p>
-                        <button type="button" class="py-0 text-nowrap btn-sm btn btn-danger"
-                            disabled>Cancelled</button>
-                    </div>
-                </div>
-                <!-- Modal footer -->
-                <div class="modal-footer mx-3">
-                    <a class="util-btn fw-bolder text-light btn btn-warning" href="Products.html#products">ADD MORE TO
-                        CART</a>
-                    <a class="util-btn fw-bolder text-light btn btn-success" href="checkout.html">CHECK-OUT</a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!----------Log-in Modal -->
 </nav>

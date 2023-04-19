@@ -1,7 +1,6 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo fw-bold text-warning" href="index.html">LOTUS PH</a>
-        <a class="sidebar-brand brand-logo-mini fw-bold text-warning" href="index.html">LOTUS PH</a>
+        <a class="sidebar-brand fw-bold text-warning" href="/redirect">LOTUS PH</a>
     </div>
     <ul class="nav">
         <li class="nav-item profile">
@@ -57,7 +56,7 @@
             <span class="nav-link">Navigation</span>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="/redirect">
                 <span class="menu-icon">
                     <i class="mdi mdi-speedometer"></i>
                 </span>

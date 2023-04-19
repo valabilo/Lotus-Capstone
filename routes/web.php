@@ -65,3 +65,13 @@ route::get('/contacts', [AdminController::class, 'contacts']);
 route::post('/add_contact', [AdminController::class, 'add_contact']);
 
 route::get('/delete_contact/{id}', [AdminController::class, 'delete_contact']);
+
+route::get('/product_details/{id}', [HomeController::class, 'product_details']);
+
+route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
+
+route::get('/cart', [HomeController::class, 'cart']);
+
+route::get('/cancel/{id}', [HomeController::class, 'cancel']);
+
+route::get('/cash_order', [HomeController::class, 'cash_order']);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
 use App\Models\Category;
@@ -17,10 +19,16 @@ use App\Models\Contact;
 class AdminController extends Controller
 {
     //category
-    public function view_category()
+    public function view_category($id)
     {
-        $data = category::all();
-        return view('admin.category', compact('data'));
+        if (Auth::id()) {
+            $user = Auth::user();
+            $data = category::all();
+            return view('admin.category', compact('data'));
+        } else {
+            return redirect('login');
+        }
+
     }
     //add category
     public function add_category(Request $request)
@@ -99,7 +107,6 @@ class AdminController extends Controller
             $request->image->move('products', $imagename);
             $product->image = $imagename;
         }
-
         $product->save();
         return redirect()->back()->with('message', 'Product Updated Successfully');
     }
