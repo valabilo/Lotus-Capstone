@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\MyNotification;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -16,18 +17,21 @@ use App\Models\Stores;
 
 use App\Models\Contact;
 
+use App\Models\Order;
+
+use Notification;
+
+use App\Notification\SendEmailNotification;
+
 class AdminController extends Controller
 {
     //category
-    public function view_category($id)
+    public function view_category()
     {
-        if (Auth::id()) {
-            $user = Auth::user();
-            $data = category::all();
-            return view('admin.category', compact('data'));
-        } else {
-            return redirect('login');
-        }
+        $user = Auth::user();
+        $data = category::all();
+        return view('admin.category', compact('data'));
+
 
     }
     //add category
@@ -180,5 +184,43 @@ class AdminController extends Controller
         $contact = Contact::find($id);
         $contact->delete();
         return redirect()->back()->with('message', 'Contact Deleted Successfully');
+    }
+    public function order()
+    {
+        $order = order::all();
+        return view('admin.order', compact('order'));
+    }
+    public function delivered($id)
+    {
+        $order = Order::find($id);
+        $order->delivery_status = "Delivered";
+        $order->paymanet_status = "Paid";
+        $order->save();
+        return redirect()->back();
+    }
+    public function send_email($id)
+    {
+        $order = Order::find($id);
+        return view('admin.email_info', compact('order'));
+    }
+    public function send_user_email(Request $request, $id)
+    {
+        $order = Order::find($id);
+        $details = [
+            'greeting' => $request->greeting,
+            'firstline' => $request->firstline,
+            'body' => $request->body,
+            'button' => $request->button,
+            'url' => $request->url,
+            'lastline' => $request->lastline,
+        ];
+        Notification::send($order, new MyNotification($details));
+        return redirect()->back()->with('message', 'Email sent Successfully!');
+    }
+    public function search_order(Request $request)
+    {
+        $val = $request['search'];
+        $order = order::where('name', 'LIKE', "%val%")->orWhere('product_name', 'LIKE', "%val%")->get();
+        return view('admin.order', compact('order'));
     }
 }

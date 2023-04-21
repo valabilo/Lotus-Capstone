@@ -28,7 +28,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-route::get('/redirect', [HomeController::class, 'redirect']);
+route::get('/redirect', [HomeController::class, 'redirect'])->middleware('auth', 'verified');
 
 route::get('/view_category', [AdminController::class, 'view_category']);
 
@@ -66,6 +66,20 @@ route::post('/add_contact', [AdminController::class, 'add_contact']);
 
 route::get('/delete_contact/{id}', [AdminController::class, 'delete_contact']);
 
+route::get('/order', [AdminController::class, 'order']);
+
+route::get('/delivered/{id}', [AdminController::class, 'delivered']);
+
+route::get('/send_email/{id}', [AdminController::class, 'send_email']);
+
+route::post('/send_user_email/{id}', [AdminController::class, 'send_user_email']);
+
+route::get('/search/{search}', [AdminController::class, 'search_order']);
+
+
+
+//HOME
+
 route::get('/product_details/{id}', [HomeController::class, 'product_details']);
 
 route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
@@ -75,3 +89,11 @@ route::get('/cart', [HomeController::class, 'cart']);
 route::get('/cancel/{id}', [HomeController::class, 'cancel']);
 
 route::get('/cash_order', [HomeController::class, 'cash_order']);
+
+route::get('/all_products', [HomeController::class, 'products']);
+
+route::get('/stripe/{totalprice}', [HomeController::class, 'stripe']);
+
+Route::post('stripe/{totalprice}', [HomeController::class, 'stripePost'])->name('stripe.post');
+
+route::get('/load-cart-data', [HomeController::class, 'cartcount']);

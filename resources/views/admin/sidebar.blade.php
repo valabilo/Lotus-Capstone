@@ -1,6 +1,6 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand fw-bold text-warning" href="/redirect">LOTUS PH</a>
+        <a class="sidebar-brand fw-bold text-warning" href="Lotus-capstone/redirect">LOTUS PH</a>
     </div>
     <ul class="nav">
         <li class="nav-item profile">
@@ -106,19 +106,19 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url('payment') }}">
-                <span class="menu-icon">
-                    <i class="mdi mdi-playlist-play"></i>
-                </span>
-                <span class="menu-title">Payment</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
             <a class="nav-link" href="{{ url('contacts') }}">
                 <span class="menu-icon">
                     <i class="mdi mdi-playlist-play"></i>
                 </span>
                 <span class="menu-title">Contacts</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ url('order') }}">
+                <span class="menu-icon">
+                    <i class="mdi mdi-playlist-play"></i>
+                </span>
+                <span class="menu-title">Orders</span>
             </a>
         </li>
     </ul>

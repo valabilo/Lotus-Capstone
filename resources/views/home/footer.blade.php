@@ -1,5 +1,5 @@
-<div class="ban container-fluid mt-3">
-    <h2 class="text-center  py-3">PERFORMANCE, DELIVERED</h2>
+<div class=" container-fluid mt-3 p-0 ">
+    <h2 class="text-center py-5 bg-secondary fs-2 text-light fw-bold">PERFORMANCE, DELIVERED</h2>
 </div>
 <div>
     <a href="#myForm" onclick="openForm()" class="open-button">
@@ -22,34 +22,35 @@
             <div class="col-md-4 flex-1">
                 <div class="footer-logo mb-4">
                     <a href="#">
-                        <img width="200px" height="150px" src="/projectassets/logo.jpg" alt="">
+                        <img width="200px" height="150px" src="{{ asset('public/projectassets/logo.jpg') }}"
+                            alt="">
                     </a>
                 </div>
                 <div class="footer-support">
-                    <h3 class="foot-font">Support</h3>
-                    <hr class="ms-4">
-                    <p><a href="#">Service Center</a></p>
-                    <p><a href="#">Product Registration</a></p>
-                    <p><a href="#">Warranty Informations</a></p>
-                    <p><a href="#">FAQs</a></p>
+                    <h3 class="foot-font fs-3 pb-3 pt-2">Support</h3>
+                    <hr class="me-4">
+                    <p class="py-2"><a href="#">Service Center</a></p>
+                    <p class="pb-2"><a href="#">Product Registration</a></p>
+                    <p class="pb-2"><a href="#">Warranty Informations</a></p>
+                    <p class="pb-2"><a href="#">FAQs</a></p>
                 </div>
             </div>
-            <div class="col-md-4 ">
+            <div class="col-md-4">
                 <div class="foot">
                     <div>
-                        <h3 class="foot-font footer-about">About Us</h3>
-                        <hr class="ms-4">
-                        <p><a href="">Why Lotus</a></p>
-                        <p><a href="">Featured Articles</a></p>
+                        <h3 class="foot-font fs-3 footer-about pb-3 pt-2">About Us</h3>
+                        <hr class="me-4">
+                        <p class="py-2"><a href="#">Why Lotus</a></p>
+                        <p class="pb-2"><a href="#">Featured Articles</a></p>
                     </div>
                     <div>
-                        <h3 class="footer-contact foot-font">Contact Us</h3>
-                        <hr class="ms-4">
+                        <h3 class="footer-contact foot-font fs-3 pb-3 pt-2">Contact Us</h3>
+                        <hr class="me-4">
                         <div>
                             @foreach ($contact as $contact)
-                                <div class="col-md-4 d-flex gap-1">
-                                    <img width="20px" height="20px" src="projectassets/phone-icon.png"
-                                        alt="">
+                                <div class="col-md-4 d-flex gap-1 py-2">
+                                    <img width="20px" height="20px"
+                                        src="{{ asset('public/projectassets/phone-icon.png') }}" alt="">
                                     <p class="text-nowrap">{{ $contact->number }}</p>
                                 </div>
                             @endforeach
@@ -60,9 +61,9 @@
                         </div>
                     </div>
                     <div>
-                        <h3 class="foot-font">Follow Us</h3>
+                        <h3 class="foot-font fs-3 pb-3 pt-2">Follow Us</h3>
                     </div>
-                    <hr class="ms-4">
+                    <hr class="me-4">
                     <div class="socials row mt-3 px-5 pb-2">
                         <div class="col"><a href="...">
                                 <img class="rounded img-fluid" width="50px" height="50px"
@@ -85,7 +86,7 @@
             <div class="col-md-4">
                 <div class="foot">
                     <form class="footer-form footer-form" action="">
-                        <h3 class="foot-font">Email Sign up</h3>
+                        <h3 class="foot-font fs-3 pb-3 pt-2">Email Sign up</h3>
                         <p class="my-1">Sign up to receive the latest info on new LOTUS products, special offers and
                             more.</p>
                         <table>
@@ -116,11 +117,12 @@
                     </form>
                 </div>
                 <div>
-                    <p>By signing up you agree to receive emails from Lotus with news, special offers, promotions and
+                    <small>By signing up you agree to receive emails from Lotus with news, special offers, promotions
+                        and
                         other
                         information. You can unsubscribe at any time. See our Privacy Policy or Contact Us by filling
                         out
-                        this form.</p>
+                        this form.</small>
                 </div>
             </div>
         </div>

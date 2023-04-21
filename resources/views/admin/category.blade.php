@@ -31,7 +31,7 @@
 
                     </form>
                 </div>
-                <table class="mx-auto w-50 border border-secondary text-center">
+                <table class="table table-bordered table-dark table-hover w-100 mx-auto my-3">
                     <tr>
                         <td class="border py-2 fs-4 text-warning fw-bold">Category Name</td>
                         <td class="border py-2 fs-4 text-warning fw-bold">Action</td>

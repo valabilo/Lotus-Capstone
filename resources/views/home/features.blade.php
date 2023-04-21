@@ -7,9 +7,9 @@
             @foreach ($product as $products)
                 <swiper-slide>
                     <div class="img-zoom card h-100 px-2" style="width: 450px;">
-                        <a href="{{ url('product_details', $products->id) }}">
-                            <img width="250px" src="/products/{{ $products->image }}" class=" card-img-top"
-                                alt="Sample Image">
+                        <a class="img-wrapper" href="{{ url('product_details', $products->id) }}">
+                            <img width="250px" src="public/products/{{ $products->image }}"
+                                class="inner-img card-img-top" alt="Sample Image">
                         </a>
                         <div class="h-100 card-body text-left p-2">
                             <div class="card-title fs-4 text-uppercase fw-bold">{{ $products->name }}</div>
@@ -23,7 +23,7 @@
                                         @if ($products->discount_price != 0)
                                             <small class="px-2 mb-0 fw-bold text-decoration-line-through">
                                                 ₱{{ $products->price }}</small>
-                                            <div class="fs-4 mb-0 fw-bold text-success">
+                                            <div class="fs-5 mb-0 fw-bold text-success">
                                                 ₱{{ $products->discount_price }}
                                             </div>
                                         @else
@@ -31,19 +31,39 @@
                                         @endif
                                     </div>
                                     <div class="d-flex justify-content-end">
-                                        <small class="d-flex align-items-end ms-5 mt-2 mb-0 fw-bolder">Stocks:
+                                        <small
+                                            class="d-flex align-items-end ms-5 mt-2 mb-0 fw-bolder text-muted">Stocks:
                                             {{ $products->quantity }}</small>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer d-flex justify-content-center ">
-                                <form action="{{ url('add_cart', $products->id) }}" method="POST"
-                                    class="w-50 <?php if ($products->quantity == '0'){ ?> disabled
+                                @if (Route::has('login'))
+                                    @auth
+
+                                        <form wire:submit.prevent="addToCart({{ $products->i }})"
+                                            action="{{ url('add_cart', $products->id) }}" method="POST"
+                                            class="w-75 <?php if ($products->quantity == '0'){ ?> disabled
                                     <?php   } ?>"
-                                    action="{{ url('add_cart') }}">
-                                    @csrf
-                                    <input class="btn btn-hover btn-link w-100" type="submit" value="Add to Cart">
-                                </form>
+                                            action="{{ url('add_cart') }}">
+                                            @csrf
+                                            @if ($cart->where('Product_id', $products->id)->count())
+                                                <a class="btn mx-auto text-center" value="Already in Cart">Already in
+                                                    Cart</a>
+                                            @else
+                                                <input class="btn btn-hover btn-link w-100" type="submit"
+                                                    value="Add to Cart">
+                                            @endif
+                                        </form>
+                                    @else
+                                        <form action=""><a tabindex="0" class="text-center wish-zoom" role="button"
+                                                data-bs-toggle="popover" data-bs-trigger="hover"
+                                                data-bs-content="You need to log in first">
+                                                Add to Cart
+                                            </a></form>
+
+                                    @endauth
+                                @endif
                             </div>
                         </div>
                     </div>

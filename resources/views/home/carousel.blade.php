@@ -6,21 +6,19 @@
             <li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
             <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
         </ol>
-
         <!-- Wrapper for carousel items -->
         <div class="carousel-inner">
             @foreach ($carousel as $carousel)
                 <div class="carousel-item active">
-                    <img height="600dvh" src="/data/{{ $carousel->image }}" class="d-block w-100" alt="Slide 1">
+                    <img height="600dvh" src="public/data/{{ $carousel->image }}" class="d-block w-100" alt="Slide 1">
                 </div>
             @endforeach
             <div class="container">
                 <div class="carousel-caption text-center">
-                    <p><a class="util-btn btn-lg btn btn-warning" href="#shop-now">SHOP NOW</a></p>
+                    <p><a class="util-btn btn-lg btn btn-warning" href="#">SHOP NOW</a></p>
                 </div>
             </div>
         </div>
-
         <!-- Carousel controls -->
         <a class="carousel-control-prev" href="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>

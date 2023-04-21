@@ -35,24 +35,32 @@
                                 type="submit" name="submit" value="Add Carousel"></div>
                     </form>
                 </div>
-                <table class="mx-auto w-50 border border-secondary text-center">
-                    <tr>
-                        <td class="border py-2 fs-4 text-warning fw-bold">Category Name</td>
-                        <td class="border py-2 fs-4 text-warning fw-bold">Image</td>
-                        <td class="border py-2 fs-4 text-warning fw-bold">Action</td>
-                    </tr>
-                    @foreach ($data as $data)
+                <table class="table table-bordered table-dark table-hover w-50 mx-auto my-3">
+                    <thead>
                         <tr>
-                            <td class="border py-2">{{ $data->name }}</td>
-                            <td class="border-1  p-1 text-secondary">
-                                <img width="50px" src="/data/{{ $data->image }}" alt="prod-img">
-                            </td>
-                            <td class="border py-2"><a
-                                    onclick="return confirm(`Are you sure you want to delete {{ $data->name }} carousel?`)"
-                                    class="btn btn-danger" href="{{ url('delete_carousel', $data->id) }}">Delete</a>
-                            </td>
+                            <th class="text-warning " scope="col">Category Name</th>
+                            <th class="text-warning " scope="col">Image</th>
+                            <th class="text-warning " scope="col">Action</th>
                         </tr>
-                    @endforeach
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $data)
+                            <tr>
+                                <td>{{ $data->name }}</td>
+                                <td>
+                                    <div class="d-flex justify-content-center">
+                                        <img width="100px" src="{{ asset('public/data/') . '/' . $data->image }}"
+                                            alt="prod-img">
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <a onclick="return confirm(`Are you sure you want to delete {{ $data->name }} carousel?`)"
+                                        class="btn btn-danger" href="{{ url('delete_carousel', $data->id) }}">Delete</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
                     {{-- @if (count($data) > 0)
                         <h2>No Item</h2>
                     @endif --}}

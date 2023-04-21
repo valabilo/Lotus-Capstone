@@ -9,16 +9,7 @@
                     class="cat-zoom card-img-top" alt="...">
                 <div class="card-body text-justify p-0">
                     <h5 class="card-title fw-bolder">POWER TOOLS</h5>
-                    <a href="Products.html#products" class="cat-btn mt-3">Shop Now</a>
-                </div>
-            </div>
-            <div class="card border-0 mb-3 mx-auto" style="width: 250px;">
-                <img height="220px"
-                    src="https://bynder.sbdinc.com/m/3d20538f004af4b5/Drupal_Small-DW_20V_GFN_Batteries_G2.jpg"
-                    class="cat-zoom card-img-top" alt="...">
-                <div class="card-body text-justify ps-0 pt-0">
-                    <h5 class="card-title fw-bolder">HAND TOOLS</h5>
-                    <a href="Products.html#products" class="cat-btn mt-3">Shop Now</a>
+                    <a href="all_products" class="cat-btn mt-3">Shop Now</a>
                 </div>
             </div>
             <div class="card border-0 mb-3 mx-auto" style="width: 250px;">
@@ -26,7 +17,7 @@
                     class="cat-zoom card-img-top" alt="...">
                 <div class="card-body text-justify ps-0 pt-0">
                     <h5 class="card-title fw-bolder">GARDEN TOOLS</h5>
-                    <a href="Products.html#products" class="cat-btn mt-3">Shop Now</a>
+                    <a href="all_products" class="cat-btn mt-3">Shop Now</a>
                 </div>
             </div>
             <div class="card border-0 mb-3 mx-auto" style="width: 250px;">
@@ -35,7 +26,7 @@
                     class="cat-zoom card-img-top" alt="...">
                 <div class="card-body text-justify ps-0 pt-0">
                     <h5 class="card-title fw-bolder">HAND TOOLS</h5>
-                    <a href="Products.html#products" class="cat-btn mt-3">Shop Now</a>
+                    <a href="all_products" class="cat-btn mt-3">Shop Now</a>
                 </div>
             </div>
             <div class="card border-0 mb-3 mx-auto" style="width: 250px;">
@@ -43,7 +34,7 @@
                     class="cat-zoom card-img-top " alt="...">
                 <div class="card-body text-justify ps-0 pt-0">
                     <h5 class="card-title fw-bolder">ACCESSORIES</h5>
-                    <a href="Products.html#products" class="cat-btn mt-3">Shop Now</a>
+                    <a href="all_products" class="cat-btn mt-3">Shop Now</a>
                 </div>
             </div>
         </div>

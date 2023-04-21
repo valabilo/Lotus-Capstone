@@ -2,8 +2,6 @@
     <!-- Primary Navigation Menu -->
     <div class="">
         <div class="">
-
-
             <div class="hidden sm:flex sm:items-center">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())

@@ -36,12 +36,12 @@
             background: antiquewhite;
             padding: 10px;
         }
-        .ban {
+        /* .ban {
             background-color: grey;
             color: #fff;
             font-size: 4rem;
             letter-spacing: 5px;
-        }
+        } */
         .my-1{
             font-weight: bolder;
         }
@@ -70,6 +70,18 @@
         .hero {
             height: 160%;
         }
+        .img-wrapper {  
+            overflow: hidden; 
+            display: inline-block;
+          }
+          
+          .inner-img {
+            transition: 0.3s;
+          }
+          
+          .inner-img:hover {
+            transform: scale(1.05);
+          }
         .img-zoom {
             transition: transform .3s ease-in;
         }
@@ -173,6 +185,12 @@
             resize: none;
             min-height: 200px;
           }
+          /* .ban1 {
+            background-color: grey;
+            color: #fff;
+            font-size: 4rem;
+            letter-spacing: 5px;
+          } */
           /* When the textarea gets focus, do something */
           .form-container textarea:focus {
             background-color: #ddd;

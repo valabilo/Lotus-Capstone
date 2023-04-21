@@ -11,13 +11,13 @@
             </div>
             <div class="col-md-6 p-0">
                 <img width="100%" class="bg-dark text-light display-1 text-center h-100" width="50%" height="100vh"
-                    src="./projectassets/hero3.jpg" alt="">
+                    src="public/projectassets/hero3.jpg" alt="">
             </div>
         </div>
         <div class="row mb-5">
             <div class="col-md-6 p-0">
                 <img width="100%" class="bg-dark text-light display-1 text-center h-100" width="50%" height="100vh"
-                    src="./projectassets/hero3.jpg" alt="">
+                    src="public/projectassets/hero3.jpg" alt="">
             </div>
             <div class="col-md-6 p-0">
                 <div class="bg-success p-5 text-start text-light display-1 text-center h-100" width="100%"
