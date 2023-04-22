@@ -64,7 +64,7 @@ class AdminController extends Controller
         //add image
         $image = $request->image;
         $imagename = time() . '.' . $image->getClientOriginalExtension();
-        $request->image->move('products', $imagename);
+        $request->image->move('public/products', $imagename);
         $product->image = $imagename;
         //end of adding image
         $product->category = $request->category;
@@ -108,7 +108,7 @@ class AdminController extends Controller
         $image = $request->image;
         if ($image) {
             $imagename = time() . '.' . $image->getClientOriginalExtension();
-            $request->image->move('products', $imagename);
+            $request->image->move('public/products', $imagename);
             $product->image = $imagename;
         }
         $product->save();
@@ -121,7 +121,7 @@ class AdminController extends Controller
         $data->name = $request->carousel;
         $image = $request->image;
         $imagename = time() . '.' . $image->getClientOriginalExtension();
-        $request->image->move('data', $imagename);
+        $request->image->move('public/data', $imagename);
         $data->image = $imagename;
         $data->save();
         return redirect()->back()->with('message', 'Carousel Added Successfully');
@@ -147,7 +147,7 @@ class AdminController extends Controller
         $store->store_description = $request->description;
         $image = $request->image;
         $imagename = time() . '.' . $image->getClientOriginalExtension();
-        $request->image->move('store', $imagename);
+        $request->image->move('/publicstore', $imagename);
         $store->store_link = $imagename;
         $store->save();
         return redirect()->back()->with('message', 'Carousel Added Successfully');
@@ -219,8 +219,8 @@ class AdminController extends Controller
     }
     public function search_order(Request $request)
     {
-        $val = $request['search'];
-        $order = order::where('name', 'LIKE', "%val%")->orWhere('product_name', 'LIKE', "%val%")->get();
+        $searchKey = $request->input('search');
+        $order = order::where('name', 'LIKE', '%' . $searchKey . '%')->orWhere('product_name', 'LIKE', '%' . $searchKey . '%')->get();
         return view('admin.order', compact('order'));
     }
 }

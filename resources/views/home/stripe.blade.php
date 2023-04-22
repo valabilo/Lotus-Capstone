@@ -10,12 +10,12 @@
     <main>
         <section>
             <div class="container my-5 py-5">
-
                 <div class="row">
                     <div class="col-md-4">
-                        <h1 class="text-center">Pay Using your CARD</h1>
+                        <h1 class="text-center fs-3">Pay Using your CARD</h1>
                         <br />
-                        <h3 class="text-center">{{ $totalprice }}.00</h3>
+                        <h2 class="text-center">Total Amount:</h2>
+                        <h3 class="text-center text-muted">₱{{ $totalprice }}.00</h3>
                     </div>
                     <div class="col-md-6 col-md-offset-3 mx-auto shadow p-4 bg-light rounded">
                         <div class="panel panel-default credit-card-box ">
@@ -79,7 +79,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
     </main>

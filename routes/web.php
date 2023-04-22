@@ -74,7 +74,7 @@ route::get('/send_email/{id}', [AdminController::class, 'send_email']);
 
 route::post('/send_user_email/{id}', [AdminController::class, 'send_user_email']);
 
-route::get('/search/{search}', [AdminController::class, 'search_order']);
+route::post('/key_search', [AdminController::class, 'search_order']);
 
 
 
@@ -97,3 +97,9 @@ route::get('/stripe/{totalprice}', [HomeController::class, 'stripe']);
 Route::post('stripe/{totalprice}', [HomeController::class, 'stripePost'])->name('stripe.post');
 
 route::get('/load-cart-data', [HomeController::class, 'cartcount']);
+
+route::get('/all_products/{acc}', [HomeController::class, 'filter_category']);
+
+route::get('/status_order', [HomeController::class, 'order_status']);
+
+route::get('/promotions', [HomeController::class, 'promotions']);

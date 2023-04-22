@@ -56,7 +56,7 @@
                             <tr>
                                 <td class="border py-2">{{ $store->store_name }}</td>
                                 <td class="border justify-content-center py-1 pe-1 ps-5 text-secondary">
-                                    <img width="50px" src="/store/{{ $store->store_link }}"
+                                    <img width="50px" src="{{ asset('public/store/') . '/' . $store->store_link }}"
                                         alt="{{ $store->store_name }}">
                                 </td>
                                 <td class="border py-2">

@@ -22,7 +22,6 @@
                         <div class="p-1 m-2 w-75">
                             <h2 class="text-uppercase fw-bold fs-4 text-muted">{{ $product->name }}</h2>
                         </div>
-
                         <div class="d-flex justify-content-between">
                             <div class="d-flex justify-content-between align-items-center">
                                 @if ($product->discount_price != 0)

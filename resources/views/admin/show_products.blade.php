@@ -21,41 +21,51 @@
                         {{ session()->get('message') }}
                     </div>
                 @endif
-                <h2 class="container fs-2 fw-bold text-warning ps-5">All Products</h2>
-                <table class="table-hover text-light w-75 mx-auto my-3">
-                    <tr>
-                        <th class="border-2  p-3 text-warning">Product Name</th>
-                        <th class="border-2 p-3 text-warning">Product Code</th>
-                        <th class="border-2 p-3 text-warning">Quantity</th>
-                        <th class="border-2 p-3 text-warning">Category</th>
-                        <th class="border-2 p-3 text-warning">Price</th>
-                        <th class="border-2 p-3 text-warning">Discount Price</th>
-                        <th class="border-2 p-3 text-warning">Image</th>
-                        <th colspan="2" class="border-2 p-3 text-warning">Action</th>
-                    </tr>
-
-                    @foreach ($product as $product)
+                <div class="card p-2">
+                    <h2 class="container fs-2 fw-bold text-warning ps-5 text-center py-3">All Products</h2>
+                    <div class="mx-auto text-center">
+                        <form action="{{ url('/val_search') }}" method="POST">
+                            @csrf
+                            <input class="text-dark" type="text" name="search" placeholder="Search">
+                            <input type="submit" value="search" class="btn btn-warning">
+                        </form>
+                    </div>
+                    <table class="table table-bordered table-dark table-hover w-100 mx-auto my-3">
                         <tr>
-                            <td class="border-1  p-1 text-secondary">{{ $product->name }}</td>
-                            <td class="border-1  p-1 text-secondary">{{ $product->code }}</td>
-                            <td class="border-1  p-1 text-secondary">{{ $product->quantity }}</td>
-                            <td class="border-1  p-1 text-secondary">{{ $product->category }}</td>
-                            <td class="border-1  p-1 text-secondary">{{ $product->price }}</td>
-                            <td class="border-1  p-1 text-secondary">{{ $product->discount_price }}</td>
-                            <td class="border-1  p-1 text-secondary">
-                                <img width="50px" src="/products/{{ $product->image }}" alt="prod-img">
-                            </td>
-                            <td class="border-1  p-1 text-secondary">
-                                <a class="btn btn-danger"
-                                    onclick="return confirm(`Are you sure you wantto delete '{{ $product->name }}' from products?`)"
-                                    href="{{ url('delete_product', $product->id) }}">Delete</a>
-                            </td>
-                            <td class="border-1  p-1 text-secondary">
-                                <a class="btn btn-info" href="{{ url('update_product', $product->id) }}">Edit</a>
-                            </td>
+                            <th class="text-warning " scope="col">Product Name</th>
+                            <th class="text-warning " scope="col">Product Code</th>
+                            <th class="text-warning " scope="col">Quantity</th>
+                            <th class="text-warning " scope="col">Category</th>
+                            <th class="text-warning " scope="col">Price</th>
+                            <th class="text-warning " scope="col">Discount Price</th>
+                            <th class="text-warning " scope="col">Image</th>
+                            <th colspan="2" class="text-warning " scope="col">Action</th>
                         </tr>
-                    @endforeach
-                </table>
+
+                        @foreach ($product as $product)
+                            <tr>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->code }}</td>
+                                <td>{{ $product->quantity }}</td>
+                                <td>{{ $product->category }}</td>
+                                <td>{{ $product->price }}</td>
+                                <td>{{ $product->discount_price }}</td>
+                                <td>
+                                    <img width="50px" src="{{ asset('public/products') . '/' . $product->image }}"
+                                        alt="prod-img">
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger"
+                                        onclick="return confirm(`Are you sure you wantto delete '{{ $product->name }}' from products?`)"
+                                        href="{{ url('delete_product', $product->id) }}">Delete</a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-info" href="{{ url('update_product', $product->id) }}">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                </div>
             </div>
         </div>
         <!-- container-scroller -->

@@ -48,7 +48,7 @@
                                             <a href="{{ url('cancel', $carts->id) }}"
                                                 onclick="return confirm('Are you sure to cancel this product?')"
                                                 class="btn btn-danger text-light">Cancel</a>
-                                            <a class="btn btn-primary text-light">Check-out</a>
+                                            {{-- <a class="btn btn-primary text-light">Check-out</a> --}}
                                         </div>
                                     </div>
                                     <hr class="my-2">

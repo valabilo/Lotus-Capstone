@@ -28,7 +28,7 @@
                     </div>
                 @endif
                 <div class="pt-5 ">
-                    <h2 class=" w-50 mx-auto fw-bold fs-2">Add Products</h2>
+                    <h2 class="w-50 mx-auto fw-bold fs-2">Add Products</h2>
                     <hr class="w-50 mx-auto border-warning border border-2">
                     <div class=" mx-auto pt-3 w-50">
                         <form action="{{ url('/add_product') }}" method="POST" enctype="multipart/form-data">

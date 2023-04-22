@@ -34,7 +34,8 @@ class HomeController extends Controller
         $contact = contact::all();
         $cart = Cart::all();
         $store = Stores::paginate(6);
-        return view('home.userpage', compact('product', 'carousel', 'store', 'contact', 'cart'));
+        $order = Order::all();
+        return view('home.userpage', compact('product', 'carousel', 'store', 'contact', 'cart', 'order'));
     }
 
     public function redirect()
@@ -48,8 +49,9 @@ class HomeController extends Controller
                 $carousel = carousel::all();
                 $contact = contact::all();
                 $cart = Cart::all();
+                $order = Order::all();
                 $store = Stores::paginate(6);
-                return view('home.userpage', compact('product', 'carousel', 'store', 'contact', 'cart'));
+                return view('home.userpage', compact('product', 'carousel', 'store', 'contact', 'cart', 'order'));
             }
         } else {
             return redirect('login');
@@ -130,12 +132,9 @@ class HomeController extends Controller
         $contact = contact::all();
         $cart = cart::all();
         $data = $request['category'];
-        if ($data !== null) {
-            $product = Products::where('category', $data)->get();
-        } else {
-            $product = Products::all();
-        }
-        return view('home.all_products', compact('product', 'contact', 'cart'));
+
+        $products = Products::all();
+        return view('home.all_products', compact('products', 'contact', 'cart'));
     }
     public function stripe($totalprice)
     {
@@ -185,5 +184,28 @@ class HomeController extends Controller
         $cartcount = Cart::where('user_id', Auth::id())->count();
         // return response()->json(['count' => $cartcount]);
         return $cartcount;
+    }
+    public function filter_category(Request $request)
+    {
+        $contact = contact::all();
+        $cat = $request['acc'];
+        $cart = cart::all();
+        $products = Products::where('category', $cat)->get();
+        return view('home.all_products', compact('products', 'contact', 'cart'));
+    }
+    public function order_status()
+    {
+        $id = Auth::user()->id;
+        $order = Order::where('user_id', $id)->get();
+        $contact = contact::all();
+        $cart = cart::all();
+        return view('home.status_order', compact('contact', 'cart', 'order'));
+    }
+    public function promotions()
+    {
+        $contact = contact::all();
+        $cart = cart::all();
+        $product = products::all();
+        return view('home.promotions', compact('contact', 'cart', 'product'));
     }
 }

@@ -5,7 +5,7 @@
         <div class="row h-25 py-3">
             @foreach ($store as $stores)
                 <div class="col-md-2 g-2 d-flex align-items-center">
-                    <img width="100px" class="mb-2 mx-auto " src="/store/{{ $stores->store_link }}"
+                    <img width="100px" class="mb-2 mx-auto " src="{{ asset('public/store/') . '/' . $stores->store_link }}"
                         alt="{{ $stores->name }}">
                 </div>
             @endforeach
