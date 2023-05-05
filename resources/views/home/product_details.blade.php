@@ -40,12 +40,36 @@
                                 <form action="{{ url('add_cart', $product->id) }}" method="POST" class="w-100"
                                     action="{{ url('add_cart') }}">
                                     @csrf
-                                    <input class="btn btn-link p-0 w-100" type="submit" value="Add to Cart">
+
                                 </form>
                             </div>
                         </div>
                         <small class="d-flex flex-end text-muted ps-2 fw-bold">Stocks: {{ $product->quantity }}</small>
-                        <div class="d-grid p-1 m-auto"><a href="checkout.html" class="btn btn-warning py-2">BUY NOW</a>
+                        <div class="d-grid p-1 m-auto">
+                            @if (Route::has('login'))
+                                @auth
+                                    <form action="{{ url('add_cart', $product->id) }}" method="POST"
+                                        class="w-100 <?php if ($product->quantity == '0'){ ?> disabled
+                                    <?php   } ?>"
+                                        action="{{ url('add_cart') }}">
+                                        @csrf
+                                        @if ($cart->where('Product_id', $product->id)->count())
+                                            <a class="btn text-light btn-success w-100 wish-zoom">Already in Cart</a>
+                                        @else
+                                            <input
+                                                class="<?php if ($product->quantity == '0'){ ?> disabled <?php   } ?> btn btn-warning w-100 wish-zoom"
+                                                type="submit" value="Add to Cart">
+                                        @endif
+                                    </form>
+                                @else
+                                    <form action="" class="w-100">
+                                        <a tabindex="0" class="btn w-100 btn-warning wish-zoom" data-bs-toggle="popover"
+                                            data-bs-trigger="hover" data-bs-content="You need to log in first">
+                                            Add to Cart
+                                        </a>
+                                    </form>
+                                @endauth
+                            @endif
                         </div>
                         <ul>
                             <li class="py-2">ENGINEERED FOR HIGH TORQUE AND VERSATILITY: Brushless motor delivers up

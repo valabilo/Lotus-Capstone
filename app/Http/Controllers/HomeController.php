@@ -62,7 +62,8 @@ class HomeController extends Controller
     {
         $product = products::find($id);
         $contact = contact::all();
-        return view('home.product_details', compact('product', 'contact'));
+        $cart = cart::all();
+        return view('home.product_details', compact('product', 'contact', 'cart'));
     }
     public function add_cart(Request $request, $id)
     {
@@ -132,8 +133,8 @@ class HomeController extends Controller
         $contact = contact::all();
         $cart = cart::all();
         $data = $request['category'];
-
-        $products = Products::all();
+        $products = Products::paginate(6);
+        // $products = Products::all();
         return view('home.all_products', compact('products', 'contact', 'cart'));
     }
     public function stripe($totalprice)
@@ -190,7 +191,8 @@ class HomeController extends Controller
         $contact = contact::all();
         $cat = $request['acc'];
         $cart = cart::all();
-        $products = Products::where('category', $cat)->get();
+        $products = Products::where('category', $cat)->paginate(6);
+
         return view('home.all_products', compact('products', 'contact', 'cart'));
     }
     public function order_status()
@@ -207,5 +209,13 @@ class HomeController extends Controller
         $cart = cart::all();
         $product = products::all();
         return view('home.promotions', compact('contact', 'cart', 'product'));
+    }
+    public function search_product(Request $request)
+    {
+        $searchText = $request->input('search');
+        $products = Products::where('name', 'LIKE', '%' . $searchText . '%')->orWhere('category', 'LIKE', '%' . $searchText . '%')->paginate(9);
+        $contact = contact::all();
+        $cart = cart::all();
+        return view('home.all_products', compact('products', 'contact', 'cart'));
     }
 }

@@ -103,3 +103,5 @@ route::get('/all_products/{acc}', [HomeController::class, 'filter_category']);
 route::get('/status_order', [HomeController::class, 'order_status']);
 
 route::get('/promotions', [HomeController::class, 'promotions']);
+
+route::get('/search', [HomeController::class, 'search_product']);

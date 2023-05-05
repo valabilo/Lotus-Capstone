@@ -53,15 +53,14 @@
                                     </div>
                                     <hr class="my-2">
                                     <?php $totalprice = $totalprice + $carts->price; ?>
-                                    <div class="text-end">Total Price : {{ $totalprice }}.00</div>
+
                                 @empty
+
                                     <div class="text-center">No items in the Cart</div>
-                                @endforelse
                             </div>
-
+                            @endforelse
+                            <div class="text-end">Total Price : {{ $totalprice }}.00</div>
                         </div>
-
-                        <!-- Modal footer -->
                         <div class="d-flex justify-content-center">
                             <div class="d-flex justify-content-center gap-3 mx-3 text-end pe-5">
                                 <a class="util-btn fw-bolder text-light btn btn-warning my-2"

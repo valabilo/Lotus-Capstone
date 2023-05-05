@@ -10,7 +10,8 @@
         <div class="carousel-inner">
             @foreach ($carousel as $carousel)
                 <div class="carousel-item active">
-                    <img height="600dvh" src="public/data/{{ $carousel->image }}" class="d-block w-100" alt="Slide 1">
+                    <img height="600dvh" src="{{ asset('public/data/') . '/' . $carousel->image }}"
+                        class="img-fluid image-responsive d-block w-100" alt="Slide 1">
                 </div>
             @endforeach
             <div class="container">

@@ -45,75 +45,75 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-custom navbar-nav">
-                <a href="{{ url('all_products') }}" class="ms-auto nav-item nav-link active">PRODUCTS</a>
-                <a href="{{ url('promotions') }}" class="ms-auto nav-item nav-link">PROMOTIONS</a>
+                <a href="{{ url('all_products') }}" class=" nav-item nav-link active">PRODUCTS</a>
+                <a href="{{ url('promotions') }}" class=" nav-item nav-link">PROMOTIONS</a>
                 {{-- <a href="home/services.html" class="ms-auto nav-item nav-link">SERVICES</a> --}}
             </div>
             @if (Route::has('login'))
                 @auth
-                    <div class="navbar-custom navbar-nav ms-auto">
-                        <a href="{{ url('/status_order') }}" class=" nav-item nav-link text-light fw-bold"><i
-                                class="bi bi-bag-check-fill" style="font-size: 1.60rem; color:rgb(96, 91, 91)"></i></a>
-                    </div>
                     {{-- <form class="d-flex ms-auto">
                 <input type="text" class="form-control me-sm-2" placeholder="Search">
                 <button type="submit" class="btn btn-outline-light">Search</button>
             </form> --}}
-                    <div class="navbar-nav m-2 align-items-center">
-
+                    <div class="navbar-nav align-items-center ms-auto">
+                        <div class="navbar-custom navbar-nav">
+                            <a href="{{ url('/status_order') }}" class=" nav-item nav-link text-light fw-bold">
+                                <i class="bi bi-bag-check-fill" style="font-size: 1.60rem; color:rgb(96, 91, 91)"></i>
+                            </a>
+                        </div>
                         <div class="w-100 ms-auto nav-item nav-link">
-                            <a href="{{ url('cart') }}" class="d-flex align-items-center wish-zoom ms-auto"><img
-                                    width="30px" height="30px"
+                            <a href="{{ url('cart') }}" class="d-flex align-items-center wish-zoom ms-auto">
+                                <img width="30px" height="30px"
                                     src="https://cdn3.iconfinder.com/data/icons/jolly-icons-free/64/cart_64.png"
                                     alt="">
                                 <span style="position: relative; top:-10px; left:5px" class="badge bg-danger"
-                                    id="cart-count">0</span></a>
+                                    id="cart-count">0</span>
+                            </a>
                         </div>
-
-                        <div class="ms-auto nav-item nav-link">
+                        <div class="nav-item nav-link w-100">
                             <x-app-layout>
                             </x-app-layout>
                         </div>
-                    @else
-                        <div class="navbar-custom navbar-nav ms-auto">
+                    </div>
+                @else
+                    {{-- <form class="d-flex ms-auto">
+                        <input type="text" class="form-control me-sm-2" placeholder="Search">
+                        <button type="submit" class="btn btn-outline-light">Search</button>
+                    </form> --}}
+                    <div class="navbar-nav align-items-center ms-auto">
+                        <div class="w-100 ms-auto nav-item nav-link">
                             <a tabindex="0" class="d-flex align-items-center wish-zoom ms-auto" role="button"
                                 data-bs-toggle="popover" data-bs-trigger="focus"
                                 data-bs-content="You need to log in first"><i class="bi bi-bag-check-fill"
                                     style="font-size: 1.60rem; color:rgb(96, 91, 91)"></i></a>
                         </div>
-                        {{-- <form class="d-flex ms-auto">
-                        <input type="text" class="form-control me-sm-2" placeholder="Search">
-                        <button type="submit" class="btn btn-outline-light">Search</button>
-                    </form> --}}
-                        <div class="navbar-nav m-2 align-items-center">
-                            <div class="w-100 ms-auto nav-item nav-link">
-                                <a tabindex="0" class="d-flex align-items-center wish-zoom ms-auto" role="button"
-                                    data-bs-toggle="popover" data-bs-trigger="focus"
-                                    data-bs-content="You need to log in first">
-                                    <img width="30px" height="30px"
-                                        src="https://cdn3.iconfinder.com/data/icons/jolly-icons-free/64/cart_64.png"
-                                        alt="">
-                                    <span style="position: relative; top:-10px; left:5px" class="badge bg-danger">0</span>
-                                </a>
-                            </div>
-                            <div class="dropdown">
-                                <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img width="30px" height="30px"
-                                        src="https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_user-64.png"
-                                        alt="Log in">
-                                </a>
-                                <ul class="dropdown-menu bg-light" aria-labelledby="dropdownMenuLink">
-                                    <li class="dropdown-item text-center"><a class=" btn btn-sm text-dark"
-                                            href="{{ route('login') }}">Log In</a></li>
-                                    <li class="dropdown-item text-center"><a class=" btn btn-sm text-dark"
-                                            href="{{ route('register') }}">Register</a></li>
-                                </ul>
-                            </div>
-                        @endauth
+                        <div class="w-100 ms-auto nav-item nav-link">
+                            <a tabindex="0" class="d-flex align-items-center wish-zoom ms-auto" role="button"
+                                data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content="You need to log in first">
+                                <img width="30px" height="30px"
+                                    src="https://cdn3.iconfinder.com/data/icons/jolly-icons-free/64/cart_64.png"
+                                    alt="">
+                                <span style="position: relative; top:-10px; left:5px" class="badge bg-danger">0</span>
+                            </a>
+                        </div>
+                        <div class="dropdown w-100 ms-auto nav-item nav-link ">
+                            <a class="btn dropdown-toggle p-0" href="#" role="button" id="dropdownMenuLink"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img width="30px" height="30px"
+                                    src="https://cdn4.iconfinder.com/data/icons/glyphs/24/icons_user-64.png"
+                                    alt="Log in">
+                            </a>
+                            <ul class="dropdown-menu bg-light" aria-labelledby="dropdownMenuLink">
+                                <li class="dropdown-item text-center"><a class=" btn btn-sm text-dark"
+                                        href="{{ route('login') }}">Log In</a></li>
+                                <li class="dropdown-item text-center"><a class=" btn btn-sm text-dark"
+                                        href="{{ route('register') }}">Register</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                @endauth
             @endif
         </div>
-    </div>
     </div>
     </div>
     </div>

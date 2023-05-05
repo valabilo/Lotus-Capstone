@@ -62,6 +62,17 @@
                                     <div class="col-md-6">
                                     </div>
                                     <div class="col-md-6">
+
+                                        <form action="{{ url('/search') }}" type='get' method="Get">
+                                            @csrf
+                                            <div class="input-group mb-3">
+                                                <input size="30px" class="text-dark form-control" type="text"
+                                                    name="search" placeholder="Search" aria-label="Search Product">
+                                                <input id="button-addon2" type="submit" value="search"
+                                                    class="btn btn-warning">
+                                            </div>
+                                        </form>
+
                                         {{-- <form onSubmit={handleSearch}>
                                             <button type='submit'
                                                 class="bg-outline-warning btn btn-warning">Search</button>
@@ -74,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="row py-3">
-                                @foreach ($products as $product)
+                                @forelse ($products as $product)
                                     <div class="col-md-4 py-3">
                                         <div class="container-fluid ">
                                             <div class="card px-2 img-zoom pb-2">
@@ -144,8 +155,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
-                                {{-- <div class="d-flex flex-end">{!! $products->withQueryString()->links('pagination::bootstrap-5') !!}</div> --}}
+                                @empty
+                                    <div class="text-center fs-2 text-uppercase">No Item Found</div>
+                                @endforelse
+                                {{-- <div c>{!! $products->links() !!}</div> --}}
+                                <div class="d-flex justify-content-end">{!! $products->links() !!}</div>
 
                             </div>
                         </div>

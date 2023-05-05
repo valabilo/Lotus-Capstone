@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="foot">
+                <div class="">
                     <div>
                         <h3 class="foot-font fs-3 footer-about pb-3 pt-2">About Us</h3>
                         <hr class="me-4">

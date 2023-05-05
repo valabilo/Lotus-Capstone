@@ -12,7 +12,7 @@
                         <div class="img-zoom card h-100 px-2" style="width: 450px;">
                             <a class="img-wrapper" href="{{ url('product_details', $products->id) }}">
                                 <img width="250px" src="public/products/{{ $products->image }}"
-                                    class="inner-img card-img-top" alt="Sample Image">
+                                    class="img-fluid image-responsive inner-img card-img-top" alt="Sample Image">
                             </a>
                             <div class="h-100 card-body text-left p-2">
                                 <div class="card-title text-uppercase fw-bold">{{ $products->name }}</div>
@@ -44,28 +44,28 @@
                                 <div class="card-footer d-flex justify-content-center ">
                                     @if (Route::has('login'))
                                         @auth
-
-                                            <form wire:submit.prevent="addToCart({{ $products->i }})"
-                                                action="{{ url('add_cart', $products->id) }}" method="POST"
-                                                class="w-75 <?php if ($products->quantity == '0'){ ?> disabled
-                                    <?php   } ?>"
+                                            <form action="{{ url('add_cart', $products->id) }}" method="POST"
+                                                class="w-75 <?php if ($products->quantity == '0'){ ?> disabled <?php   } ?>"
                                                 action="{{ url('add_cart') }}">
                                                 @csrf
                                                 @if ($cart->where('Product_id', $products->id)->count())
-                                                    <a class="btn mx-auto text-center" value="Already in Cart">Already
-                                                        in
+                                                    <a class="btn mx-auto text-center" value="Already in Cart">Already in
                                                         Cart</a>
                                                 @else
-                                                    <input class="btn btn-hover btn-link w-100" type="submit"
-                                                        value="Add to Cart">
+                                                    <input
+                                                        class="<?php if ($products->quantity == '0'){ ?> disabled <?php   } ?> btn btn-hover btn-link w-100"
+                                                        type="submit" value="Add to Cart">
                                                 @endif
                                             </form>
                                         @else
-                                            <form action=""><a tabindex="0" class="text-center wish-zoom"
-                                                    role="button" data-bs-toggle="popover" data-bs-trigger="hover"
+                                            <form action="">
+                                                <a tabindex="0" class="text-center wish-zoom" role="button"
+                                                    data-bs-toggle="popover" data-bs-trigger="hover"
                                                     data-bs-content="You need to log in first">
                                                     Add to Cart
-                                                </a></form>
+                                                </a>
+                                            </form>
+
                                         @endauth
                                     @endif
                                 </div>
